@@ -1,0 +1,5 @@
+This is the requirements file 
+All you need to do is -
+
+pip install Django 
+pip install pillow
