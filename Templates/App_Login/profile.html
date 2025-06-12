@@ -7,5 +7,8 @@
 <p>Email: {{user.email}} </p>
 <p>Name: {{user.first_name}} {{ user.last_name}}</p>
 
+<br>
+
+<a class="btn btn-sm btn-warning" href="{% url 'App_Login:user_change' %}"> Change Profile Info </a>
 
 {% endblock body_block %}
