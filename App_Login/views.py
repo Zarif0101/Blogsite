@@ -62,9 +62,12 @@ def user_change(request):
 @login_required
 def pass_change(request):
     current_user = request.user
+    changed = False
+    form = PasswordChangeForm(user=current_user)
     if request.method == 'POST':
-        form = PasswordChangeForm(user=request.user, data=request.POST)
+        form = PasswordChangeForm(user=current_user, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('App_Login:profile'))
-    return render(request, 'App_Login/pass_change.html', context={})
+            changed = True
+            return HttpResponseRedirect(reverse('App_Blog:blog_list'))
+    return render(request, 'App_Login/pass_change.html', context={'form': form, 'changed': changed})
