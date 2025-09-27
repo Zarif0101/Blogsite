@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 app_name = 'App_Login'
 
 urlpatterns = [
@@ -10,3 +12,6 @@ urlpatterns = [
     path('change_profile/', views.user_change, name='user_change'),
     path('password/', views.pass_change, name='pass_change'),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
